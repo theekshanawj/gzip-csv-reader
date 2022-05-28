@@ -1,0 +1,23 @@
+{
+  "name": "gzip-csv-reader",
+  "version": "1.0.0",
+  "description": "Gzip CSV Reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Stream"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theekshanawj/gzip-csv-reader.git"
+  },
+  "author": "Theekshana Wijesinghe",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "csv-parser": "^3.0.0"
+  }
+}
