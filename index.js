@@ -23,8 +23,7 @@ const getStream = async (url, headers = {}) => {
     });
     return res.data;
   } catch (err) {
-    console.error(err);
-    throw new Exception("Error in get request");
+    throw err;
   }
 };
 
