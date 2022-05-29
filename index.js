@@ -1,19 +1,8 @@
 const zlib = require("zlib");
 
-const { Transform } = require("stream");
-
 const axios = require("axios");
 
 const CSV = require("csv-parser");
-
-const getTransformStream = () => {
-  const transform = new Transform({
-    transform: (chunk, encoding, next) => {
-      next(null, chunk);
-    },
-  });
-  return transform;
-};
 
 const getStream = async (url, headers = {}) => {
   try {
@@ -33,12 +22,7 @@ const readCsv = async (url) => {
       "accept-encoding": "gzip",
     });
 
-    const transform = getTransformStream();
-
-    const csvReadStream = httpStream
-      .pipe(zlib.createGunzip())
-      .pipe(transform)
-      .pipe(CSV());
+    const csvReadStream = httpStream.pipe(zlib.createGunzip()).pipe(CSV());
 
     const results = [];
 
